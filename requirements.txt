@@ -1,0 +1,15 @@
+Flask==1.0.2
+flask-restplus==0.11.0
+Flask-Script==2.0.6
+SQLAlchemy==1.2.12
+marshmallow==3.0.0b16
+itsdangerous==0.24
+Jinja2==2.10
+jsonschema==2.6.0
+MarkupSafe==1.0
+psycopg2==2.7.5
+pytz==2018.5
+six==1.11.0
+Werkzeug==0.14.1
+aniso8601==3.0.2
+click==6.7
