@@ -7,7 +7,12 @@ from marshmallow import ValidationError
 from .config import config
 
 app = Flask(__name__)
-api = Api(app)
+api = Api(app,
+            version='1.1.0',
+            title='ToDo',
+            description='A simple REST application to crate ToDo list',
+            default='Requests',
+            default_label='RESTful API')
 
 app.config.from_object(config['default'])
 
@@ -17,7 +22,7 @@ register_post = api.model('Create New User', {
     'password': fields.String(example='pass'),
 })
 
-login_post =  api.model('Login', {
+login_post = api.model('Login', {
     'username': fields.String(example='user'),
     'password': fields.String(example='pass'),
 })
@@ -148,7 +153,7 @@ class Todo(Resource):
         try:
             current_user = User.filter_by_username(request.cookies.get('token'), db_session)
             if current_user:
-                todo = db_session.query(ToDo).all()
+                todo = db_session.query(ToDo).filter(ToDo.user_id == current_user.id).all()
                 return {'todo': ToDoSchema(many=True).dump(todo)}, 200  # OK
             else:
                 return {'message': 'You need logged in'}, 403  # FORBIDDEN
