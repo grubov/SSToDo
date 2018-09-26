@@ -1,9 +1,9 @@
-# SSToDo
+# ToDo
 
 This is REST application for creation the list of todo. In the application built-in Swagger UI for working with the application. Project is based on Flask framework.
 
 
-SSkey project main features:
+ToDo project main features:
 
 * built-in swagger ui
 * authentication and authorization
