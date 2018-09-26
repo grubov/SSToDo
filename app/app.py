@@ -10,7 +10,7 @@ app = Flask(__name__)
 api = Api(app,
             version='1.1.0',
             title='ToDo',
-            description='A simple REST application to crate ToDo list',
+            description='A simple REST application to create ToDo list',
             default='Requests',
             default_label='RESTful API')
 
